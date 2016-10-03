@@ -3,9 +3,7 @@
 
 #include "systemc.h"
 
-
-class controlador : sc_module  {
-  SC_HAS_PROCESS(controlador);
+SC_MODULE (controlador)  {
   sc_in_clk     clock ;      // Clock
   sc_in<bool>   reset ;      // Reset, ativo em Alto
   sc_in<bool>   enc_sig_A ;  // Sinal A do encoder
@@ -20,8 +18,6 @@ class controlador : sc_module  {
   sc_uint<16> encoder_resolution;
   sc_bit direction;
   
-  
-  
   void enc_sig_A_counter();
   
   void speed();
@@ -34,10 +30,9 @@ class controlador : sc_module  {
 
 }; 
 
-class controlador_tb : sc_module{
-  SC_HAS_PROCESS(controlador_tb);
+
+SC_MODULE (controlador_tb){
   sc_in<bool> clock;
- 
   sc_signal <bool> enc_sig_A,enc_sig_B, reset  ;
   sc_signal   <bool> pwm_out;
   controlador *c1;

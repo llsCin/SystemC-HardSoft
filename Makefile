@@ -10,3 +10,5 @@ out: $(CPPSOURCES:.cpp=.o)
 %.o: %.cpp
 	g++ -c $< $(CPPFLAGS) -o $@
 
+clean: 
+	rm *.o
